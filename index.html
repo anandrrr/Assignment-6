@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <h2>
+            Event Management
+        </h2>
+    </div>
+    <div class="menu">
+        <button class="btn-3" onclick="home()">Home</button>
+        <button class="btn-3" onclick="sign()">Register</button>
+        <button class="btn-3" id="update" onclick="showregis()">Show Registerations</button>
+    </div>
+    <div class="home">
+        <div class="main">
+            <h1>About Event</h1>
+            <p>Event management is the application of project management to the creation and development of small and/or large-scale personal or corporate events such as festivals, conferences, ceremonies, weddings, formal parties, concerts, or conventions.
+                It involves studying the brand, identifying its target audience, devising the event concept, and coordinating the technical aspects before actually launching the event.[1] The events industry now includes events of all sizes from the Olympics
+                down to business breakfast meetings. Many industries, celebrities, charitable organizations, and interest groups hold events in order to market their label, build business relationships, raise money, or celebrate achievement. The process
+                of planning and coordinating the event is usually referred to as event planning and which can include budgeting, scheduling, site selection, acquiring necessary permits, coordinating transportation and parking, arranging for speakers or
+                entertainers, arranging decor, event security, catering, coordinating with third party vendors, and emergency plans. Each event is different in its nature so process of planning & execution of each event differs on basis of type of event.
+                The event manager is the person who plans and executes the event, taking responsibility for the creative, technical, and logistical elements. This includes overall event design, brand building, marketing and communication strategy, audio-visual
+                production, script writing, logistics, budgeting, negotiation, and client service. Due to the complexities involved, the extensive body of knowledge required, and the rapidly changing environment, event management is frequently cited as
+                one of the most stressful career paths, in line next to emergency responders and surgeons</p>
+        </div>
+        <div class="main">
+            <h1>Strategic marketing and communication</h1>
+            <p>Event management might be a tool for strategic marketing and communication, used by companies of every size. Companies can benefit from promotional events as a way to communicate with current and potential customers. For instance, these advertising-focused
+                events can occur as press conferences, promotional events, or product launches. Event managers may also use traditional news media in order to target their audience, hoping to generate media coverage which will reach thousands or millions
+                of people. They can also invite their audience to their events and reach them at the actual event.</p>
+        </div>
+        <div class="main">
+            <h1>Event venue</h1>
+            <p>An event venue may be an onsite or offsite location. The event manager is responsible for operations at a rented event or entertainment venue as they are coordinating directly with the property owner. Event manager will monitor all aspects
+                of the event on-site. Some of the tasks listed in the introduction may pass to the venue, but usually at a cost. Events present substantial liability risk to organizers and venues. Consequently, most venues require the organizers to obtain
+                blanket or event-specific general liability insurance of an amount not less than $1,000,000 per occurrence and $2,000,000 aggregate, which is the industry standard.[5][6] Corporate event managers book event venues to host corporate meetings,
+                conferences, networking events, trade shows, product launches, team-building retreats or training sessions in a more tailored environment.</p>
+        </div>
+    </div>
+    <div class="signup">
+        <h1>Register yourself</h1>
+
+        <div class="form">
+            <form method="POST" name="form_1" class="regForm">
+                <p><input type="text" id="fname" placeholder="First Name"></p>
+                <p><input type="text" id="lname" placeholder="Last Name"></p>
+                <p><input type="text" id="email" placeholder="Email Id"></p>
+                <p>
+                    <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+                <p><input type="text" id="mobile" placeholder="Mobile Number"></p>
+                <p>
+                    <input name="terms" type="checkbox" id="terms" value="accept">
+                    <label for="terms">I accept terms and condition.</label>
+                </p>
+                <button class="btn-3" type="submit">Submit</button>
+            </form>
+            <h4 id="showon">Form Submitted Successfully.</h4>
+        </div>
+    </div>
+    <div class="register" onload="fillIt()">
+        <h1>Registered Members</h1>
+        <div class="tble">
+            <table id="regData">
+                <thead>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Gender</td>
+                    <td>Mobile</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+    var h = document.querySelector('.home');
+    var s = document.querySelector('.signup');
+    var r = document.querySelector('.register');
+    var mes = document.querySelector('#showon');
+
+    function home() {
+        h.style.display = "block ";
+        s.style.display = "none ";
+        r.style.display = "none ";
+        mes.style.display = "none ";
+    }
+
+    function sign() {
+        h.style.display = "none ";
+        s.style.display = "block ";
+        r.style.display = "none ";
+        mes.style.display = "none ";
+    }
+
+    function showregis() {
+        h.style.display = "none ";
+        s.style.display = "none ";
+        r.style.display = "block ";
+        mes.style.display = "none ";
+    }
+</script>
+
+</html>
