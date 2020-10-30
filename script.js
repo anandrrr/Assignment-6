@@ -1,4 +1,4 @@
-let base_url = "http://localhost/h/handler.php";
+let base_url = "http://localhost/ass/handler.php";
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var phoneno = /^\d{10}$/;
 
@@ -97,3 +97,55 @@ $(document).on('submit', '.regForm', function(e) {
 });
 
 $(document).on('click', '#update', fillIt);
+
+
+$(document).on('submit', '.searchform', function(e) {
+    e.preventDefault();
+    var text = document.getElementById('searchbar').value;
+    var url = base_url + "?req=search&query=" + text;
+
+    var tab = document.getElementById('regData');
+    var table = document.getElementById('regData').getElementsByTagName('tbody')[0];
+
+    $.get(url, function(arr, success) {
+
+        if (arr.length == 0) {
+            tab.style.display = "none";
+        } else {
+            tab.style.display = "block";
+            table.innerHTML = "";
+            var flag = true;
+            for (i = 0; i < arr.length; i++) {
+                flag = false;
+                var Ubutt = document.createElement("BUTTON");
+                Ubutt.className = "btn-3";
+                Ubutt.className += " success";
+                Ubutt.innerText = "Update";
+                Ubutt.setAttribute("onclick", "updateprof(" + (arr[i].id) + ")");
+                var butt = document.createElement("BUTTON");
+                butt.className = "btn-3";
+                butt.className += " danger";
+                butt.innerText = "Delete";
+                butt.setAttribute("onclick", "deleteprof(" + (arr[i].id) + ")");
+                var row = table.insertRow();
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                var c5 = row.insertCell(4);
+                var c6 = row.insertCell(5);
+                c1.innerHTML = arr[i].firstn + " " + arr[i].lastn;
+                c2.innerHTML = arr[i].email;
+                c3.innerHTML = arr[i].gender;
+                c4.innerHTML = arr[i].mobile;
+                c5.append(Ubutt);
+                c6.append(butt);
+            }
+            if (flag) {
+                sh.style.display = "block";
+                tab.style.display = "none";
+            }
+        }
+    });
+
+});

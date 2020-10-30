@@ -35,6 +35,11 @@ switch($req)
         echo $usert->retsingle($obj);
         break;
 
+    case 'search':
+        $obj=$_GET['query'] ?? null;
+        echo $usert->SearchQy($obj);
+        break;
+
     default:
         echo json_encode(["Invalid request"]);
         break;

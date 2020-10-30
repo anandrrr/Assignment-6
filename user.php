@@ -81,5 +81,19 @@ class usertable {
         $result=mysqli_query($this->conn, $sql);
         return json_encode(mysqli_fetch_assoc($result));
     }
+
+    public function SearchQy($obj) {
+        $sql = "SELECT * FROM users WHERE firstn = '$obj' OR lastn = '$obj' OR email = '$obj' OR mobile = '$obj';";
+        $result=mysqli_query($this->conn, $sql);
+        $arr=array();
+        if(mysqli_num_rows($result)>0)
+        {
+            while($row=mysqli_fetch_assoc($result))
+            {
+                $arr[]=$row;
+            }
+        }
+        return json_encode($arr);
+    }
 }
 ?>

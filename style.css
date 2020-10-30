@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', Serif;
-    background: linear-gradient(to right, #b92b27 0%, #1565C0 100%)
+    background: linear-gradient(to right, #b92b27 0%, #1565C0 100%);
 }
 
 h1 {
@@ -229,4 +229,19 @@ a {
 
 .success:hover {
     background: #36aa36;
+}
+
+.searchform {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#searchbar {
+    width: 250px;
+    height: 30px;
+    outline: none;
+    margin: 20px;
+    padding: 2px;
+    border: 2px solid #aa3e3a;
 }
